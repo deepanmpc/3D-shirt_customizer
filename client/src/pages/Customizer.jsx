@@ -62,13 +62,13 @@ const Customizer = () => {
       });
 
       const data = await response.json();
-      if (response.ok) {
+      if (response.ok && data.photo) {
         handleDecals(type, `data:image/png;base64,${data.photo}`);
       } else {
-        alert(data.message);
+        alert("API Error: " + data.message);
       }
     } catch (error) {
-      alert(error.message);
+      alert("Network Error: " + error.message);
     } finally {
       setGeneratingImg(false);
       setActiveEditorTab("");
