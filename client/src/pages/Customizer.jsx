@@ -51,7 +51,7 @@ const Customizer = () => {
     if (!prompt) return alert("Please give a prompt");
     try {
       setGeneratingImg(true);
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
+      const response = await fetch("http://localhost:8080/api/v1/gemini", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
