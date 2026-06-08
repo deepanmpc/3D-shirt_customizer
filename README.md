@@ -1,74 +1,96 @@
-# 👕 SHIRT
+# 3D Shirt Customizer
 
-> Unleash Creativity, Transform Ideas into Reality Instantly
+## Overview
 
-[![Last Commit](https://img.shields.io/github/last-commit/deepanmpc/shirt)](https://github.com/deepanmpc/shirt/commits)
-[![Top Language](https://img.shields.io/github/languages/top/deepanmpc/shirt)](https://github.com/deepanmpc/shirt)
-[![Language Count](https://img.shields.io/github/languages/count/deepanmpc/shirt)](https://github.com/deepanmpc/shirt)
+3D Shirt Customizer is an interactive web application that allows users to design and customize 3D shirt models in real-time. It integrates with Google's Gemini API to generate custom textures and logos, offering an advanced AI-powered design workflow.
 
----
+## Architecture
 
-SHIRT is a powerful developer tool that enables interactive 3D product customization with real-time visualization and AI-generated design integration.
+The project follows a standard client-server architecture:
+- **Client**: A frontend built with React and Vite, responsible for rendering the 3D environment and providing the user interface for customization.
+- **Server**: An Express.js backend that securely interfaces with the Google Gemini API to process image generation requests.
 
-Built with modern frameworks like React and Vite, SHIRT empowers brands and developers to craft futuristic, engaging, and personalized design experiences.
+## Technology Stack
 
----
+### Frontend
+- React
+- Vite
+- Tailwind CSS
+- Three.js / React Three Fiber (for 3D rendering)
+- Framer Motion
 
-## 🧰 Tech Stack
+### Backend
+- Node.js
+- Express.js
+- @google/genai SDK (gemini-3.1-flash-image model)
 
-This project is built using:
+## Prerequisites
 
-- 🎯 JavaScript, React, Vite, Tailwind CSS
-- 🌐 Express.js, Mongoose, PostCSS, Cloudinary
-- 🧠 OpenAI (DALL·E API Integration)
-- 🛠️ Nodemon, ESLint, dotenv, npm
+Before running the application, ensure you have the following installed:
+- Node.js (v16 or higher)
+- npm (Node Package Manager)
+- A valid Google Gemini API Key with access to the `gemini-3.1-flash-image` model.
 
----
+## Installation
 
-## 📚 Table of Contents
-
-- 📌 Overview
-- 🛠️ Getting Started
-- 🔧 Prerequisites
-- 📦 Installation
-- 🚀 Usage
-- 🧪 Testing
-- 📃 License
-
----
-
-## 📌 Overview
-
-SHIRT simplifies complex 3D customization and AI-powered design workflows:
-
-- 🎨 Color & Decal Customization
-- 🖼️ AI Image Generation with DALL·E API
-- 💨 Blazing fast frontend with Vite + React
-- 🧩 Modular and Scalable Architecture
-- 🎞️ Smooth Animations for better UX
-
-Preview of the app (demo GIF or screenshot coming soon)
-
----
-
-## 🛠️ Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-### 🔧 Prerequisites
-
-Ensure you have the following installed:
-
-- Node.js ≥ 16
-- npm
-
----
-
-## 📦 Installation
-
-Clone and install dependencies:
-
+1. Clone the repository:
 ```bash
-git clone https://github.com/deepanmpc/shirt
-cd shirt
+git clone https://github.com/deepanmpc/3D-shirt_customizer.git
+cd 3D-shirt_customizer
+```
+
+2. Install client dependencies:
+```bash
+cd client
 npm install
+cd ..
+```
+
+3. Install server dependencies:
+```bash
+cd server
+npm install
+cd ..
+```
+
+## Environment Configuration
+
+You must provide your Gemini API key to the backend server. 
+
+1. Navigate to the `server` directory.
+2. Create a file named `.env`.
+3. Add your API key to the file as follows:
+
+```env
+GEMINI_API_KEY="your_api_key_here"
+```
+
+## Running the Application
+
+To start the application, you need to run both the frontend and backend servers concurrently in separate terminal instances.
+
+### Starting the Backend Server
+```bash
+cd server
+npm start
+```
+The backend server will start on `http://localhost:8080`.
+
+### Starting the Frontend Client
+```bash
+cd client
+npm run dev
+```
+The client will provide a local URL (e.g., `http://localhost:5173`) which you can open in your web browser to view the application.
+
+## Usage
+
+1. Open the application in your web browser.
+2. Select base colors for the 3D shirt model.
+3. Use the AI prompt interface to request a custom pattern or logo.
+4. The application will contact the Gemini API to generate the requested design and project it onto the 3D model.
+5. You can download the final customized shirt design directly from the interface.
+
+## License
+
+This project is open-source and available under the ISC License.
